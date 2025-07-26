@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JK Arts & Prints</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* === Global Styles === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+        
+        .btn:hover {
+            background: #45a049;
+        }
+        
+        /* === Header/Navbar === */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            color: #4CAF50;
+            font-size: 24px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            color: #4CAF50;
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+        }
+        
+        /* === Hero Section === */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+        
+        .hero-content h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero-content p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 25px;
+        }
+        
+        /* === Services Section === */
+        .services {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-card i {
+            font-size: 50px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        /* === About Page === */
+        .about {
+            padding: 80px 0;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            font-size: 36px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+        }
+        
+        .about-image {
+            flex: 1;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* === Contact Page === */
+        .contact {
+            padding: 80px 0;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: #4CAF50;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-form h3 {
+            font-size: 24px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        /* === Footer === */
+        footer {
+            background: #333;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ddd;
+            transition: 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: #4CAF50;
+        }
+        
+        .footer-col p {
+            color: #ddd;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-col i {
+            margin-right: 10px;
+            color: #4CAF50;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+        
+        /* === Page Content === */
+        .page-content {
+            padding: 100px 0;
+        }
+        
+        /* === Responsive Design === */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 20px;
+            }
+            
+            nav {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                background: white;
+                width: 100%;
+                height: calc(100vh - 70px);
+                transition: 0.3s;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 30px;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .hero-content h2 {
+                font-size: 36px;
+            }
+            
+            .hero-content p {
+                font-size: 18px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>JK Arts & Prints</h1>
+            </div>
+            <nav id="navbar">
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Quality Printing & Design Services</h2>
+                    <p>We provide high-quality digital printing, banners, photo frames, number plates, and more at competitive prices.</p>
+                    <a href="#services" class="btn">Our Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Preview -->
+        <section class="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Popular Services</h2>
+                    <p>We offer a wide range of printing and design solutions</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-print"></i>
+                        <h3>Digital Printing</h3>
+                        <p>High-quality prints for documents, flyers, brochures, and more.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-stamp"></i>
+                        <h3>Seal Making</h3>
+                        <p>Custom rubber stamps and official seals for businesses.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-id-card"></i>
+                        <h3>ID Cards</h3>
+                        <p>Professional ID cards for employees, students, and organizations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about page-content" id="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>About JK Arts & Prints</h2>
+                        <p>Welcome to JK Arts & Prints – your one-stop destination for all your printing and design needs. Established in 2023,
+ we have quickly built a reputation for providing high-quality, reliable, and affordable printing
+ solutions tailored to meet the unique needs of individuals and businesses alike.h high-quality printing services at affordable prices.</p>
+                        <p>At JK Arts & Prints, we are passionate about bringing your ideas to life through vibrant prints and eye-catching designs. 
+Our team of skilled professionals brings years of experience, creativity, and precision to every project—whether it's digital printing,
+ banner creation, photo framing, or the crafting of personalized stamps and custom seals. framing, or custom seals.</p>
+                        <p>We take great pride in using state-of-the-art technology, top-of-the-line machinery, and premium-grade 
+materials to ensure that every product we deliver reflects the highest standards of quality, durability, and visual appeal.
+ From small personal orders to large-scale commercial projects, no task is too big or too small for us.
+
+Our mission is simple: to deliver excellence, on time and within budget, while providing friendly customer service and
+ expert guidance every step of the way. Whether you’re launching a brand, promoting an event, or preserving a cherished
+ memory, JK Arts & Prints is here to make your vision a reality.
+
+Let us help you leave a lasting impression—because at JK Arts & Prints, your image is our business..</p>
+                        <a href="#services" class="btn">View Our Services</a>
+                    </div>
+                    <div class="about-image">
+                        <img src="8.jpg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services page-content" id="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Services</h2>
+                    <p>Comprehensive printing and design solutions</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-print"></i>
+                        <h3>Digital Printing</h3>
+                        <p>High-resolution printing for documents, flyers, brochures, and business cards.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-stamp"></i>
+                        <h3>Seal Making</h3>
+                        <p>Custom rubber stamps, official seals, and company stamps.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-portrait"></i>
+                        <h3>Half Photo</h3>
+                        <p>Passport-size and other photo printing services.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-scroll"></i>
+                        <h3>Banners/Posters</h3>
+                        <p>Large format printing for banners, posters, and signage.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-image"></i>
+                        <h3>Photo Frames</h3>
+                        <p>Custom photo framing services for your precious memories.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-car"></i>
+                        <h3>Number Plates</h3>
+                        <p>Custom vehicle number plates with official standards.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-credit-card"></i>
+                        <h3>Any Cards</h3>
+                        <p>Business cards, invitation cards, greeting cards, and more.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-tools"></i>
+                        <h3>Custom Solutions</h3>
+                        <p>Specialized printing services tailored to your unique needs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact page-content" id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Contact Us</h2>
+                    <p>Get in touch for your printing needs</p>
+                </div>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <p><i class="fas fa-envelope"></i> jkartsprints2023@gmail.com</p>
+                        <p><i class="fas fa-phone"></i> 17605457</p>
+                        <p><i class="fas fa-map-marker-alt"></i> [Your Business Address]</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 6:00 PM</p>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>JK Arts & Prints</h3>
+                    <p>Your trusted printing partner since 2023. We deliver quality printing services with fast turnaround times.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#services">Digital Printing</a></li>
+                        <li><a href="#services">Seal Making</a></li>
+                        <li><a href="#services">Banners/Posters</a></li>
+                        <li><a href="#services">Photo Frames</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-envelope"></i> jkartsprints2023@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> 17605457</p>
+                    <p><i class="fas fa-map-marker-alt"></i> [Your Business Address]</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 JK Arts & Prints. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navbar = document.getElementById('navbar');
+        
+        menuToggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                navbar.classList.remove('active');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Update active class
+                document.querySelectorAll('nav ul li a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the data to a server
+            // For this example, we'll just show an alert
+            alert(`Thank you, ${name}! Your message has been received. We'll contact you soon at ${email}.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+        
+        // Highlight active section in navigation
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('nav ul li a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
